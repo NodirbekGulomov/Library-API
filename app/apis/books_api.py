@@ -11,7 +11,7 @@ def create_book(data: BookCreate):
     return book_services.create(data)
 
 
-@router.get("books", response_model=list[BookResponse])
+@router.get("/books", response_model=list[BookResponse])
 def get_all_books():
     return book_services.get_all()
 
@@ -31,6 +31,6 @@ def delete_book(book_id: int):
     return book_services.delete(book_id)
 
 
-@router.get("/books", response_model=list[BookResponse])
+@router.get("/search_books", response_model=list[BookResponse])
 def search_books(muallif: str):
     return book_services.get_by_muallif(muallif)
