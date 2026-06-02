@@ -26,7 +26,7 @@ def update_book(book_id: int, data: BookUpdate):
     return book_services.update(book_id, data)
 
 
-@router.delete("/books/{book_id}", response_model=BookResponse)
+@router.delete("/books/{book_id}", status_code=204)
 def delete_book(book_id: int):
     return book_services.delete(book_id)
 

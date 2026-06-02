@@ -59,13 +59,14 @@ def delete(book_id: int):
     with LocalSession() as session:
         book = session.execute(
             select(Book).where(Book.id == book_id)
-        ).scalar_one_or_none
+        ).scalar_one_or_none()
 
         if book is None:
             raise HTTPException(
                 status_code=404, detail=f"Book with id[{book_id}] is not found!"
             )
         session.delete(book)
+        session.commit()
 
 
 def get_by_muallif(muallif: str) -> list[Book]:
