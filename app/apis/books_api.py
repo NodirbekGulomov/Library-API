@@ -31,6 +31,6 @@ def delete_book(book_id: int):
     return book_services.delete(book_id)
 
 
-@router.get("/books", response_model=BookResponse)
+@router.get("/books", response_model=list[BookResponse])
 def search_books(muallif: str):
     return book_services.get_by_muallif(muallif)
