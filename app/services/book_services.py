@@ -36,7 +36,7 @@ def update(book_id: int, data: BookUpdate):
     with LocalSession() as session:
         book = session.execute(
             select(Book).where(Book.id == book_id)
-        ).scalar_one_or_none
+        ).scalar_one_or_none()
 
         if data.nomi:
             book.nomi = data.nomi
